@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LEON TECH</title>
+  <!-- Favicon (base64 PNG small placeholder) -->
+  <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAPCAYAAAD
+  //…shortened…==" />
+  <style>
+    /* —— Reset & Base —— */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background:#121212;
+      color:#eee;
+      font-family:Arial,sans-serif;
+      overflow-x:hidden;
+    }
+    a { color:#4CAF50; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .container { max-width:1000px; margin:0 auto; padding:20px; }
+
+    /* —— Header & Nav —— */
+    header {
+      background:#1f1f1f;
+      padding:15px 20px;
+      position:fixed; width:100%; top:0; left:0; z-index:10;
+      box-shadow:0 2px 5px rgba(0,0,0,0.5);
+    }
+    nav { display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-size:1.8rem; font-weight:bold; letter-spacing:2px; }
+    .menu-toggle { display:none; font-size:1.5rem; cursor:pointer; }
+    ul.nav-links { list-style:none; display:flex; }
+    ul.nav-links li { margin-left:20px; }
+    ul.nav-links a { font-size:1rem; }
+
+    /* —— Hero —— */
+    .hero {
+      padding:120px 20px 80px;
+      text-align:center;
+      background:linear-gradient(135deg,#1a1a1a,#111);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero h1 {
+      font-size:3rem;
+      margin-bottom:10px;
+      background:linear-gradient(90deg,#4CAF50,#00e5ff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+    .hero p { font-size:1.2rem; margin-bottom:20px; }
+    .btn {
+      display:inline-block; padding:10px 25px;
+      background:#4CAF50; color:#121212; border-radius:4px;
+      box-shadow:0 2px 8px rgba(76,175,80,0.5);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow:0 4px 12px rgba(76,175,80,0.7);
+    }
+
+    /* —— Sections & Reveal Animation —— */
+    section {
+      padding:60px 20px;
+      opacity:0; transform:translateY(20px);
+      transition:all .6s ease-out;
+    }
+    section.reveal { opacity:1; transform:none; }
+    section h2 {
+      text-align:center; font-size:2rem; margin-bottom:20px;
+      position:relative; display: inline-block;
+    }
+    section h2::after {
+      content:''; display:block; width:50px; height:3px;
+      background:#4CAF50; margin:8px auto 0;
+    }
+
+    /* Services & Projects Cards */
+    .grid {
+      display:flex; flex-wrap:wrap; gap:20px; justify-content:center;
+    }
+    .card {
+      background:#1e1e1e; padding:20px;
+      flex:1 1 250px; max-width:300px; border-radius:6px;
+      box-shadow:0 2px 5px rgba(0,0,0,0.5);
+      transition:transform .3s;
+    }
+    .card h3 { color:#4CAF50; margin-bottom:10px; }
+    .card:hover { transform: translateY(-5px); }
+
+    /* Contact Form */
+    form {
+      display:flex; flex-direction:column; max-width:500px; margin:0 auto;
+    }
+    form label { margin-top:15px; margin-bottom:5px; }
+    form input, form textarea {
+      padding:10px; border:none; border-radius:4px;
+      background:#2a2a2a; color:#eee;
+    }
+    form button {
+      margin-top:20px; padding:10px; background:#4CAF50; color:#121212;
+      border:none; border-radius:4px; cursor:pointer;
+      transition:background .3s;
+    }
+    form button:hover { background:#45a049; }
+
+    /* Footer */
+    footer {
+      background:#1f1f1f; text-align:center; padding:15px 20px;
+      font-size:.9rem; position:relative; overflow:hidden;
+    }
+
+    /* —— Animations —— */
+    @keyframes glow {
+      from { text-shadow:0 0 10px #4CAF50; }
+      to   { text-shadow:0 0 20px #00e5ff; }
+    }
+
+    /* —— Responsive —— */
+    @media(max-width:768px) {
+      .menu-toggle { display:block; color:#eee; }
+      ul.nav-links {
+        position:absolute; top:60px; right:0; background:#1f1f1f;
+        width:200px; flex-direction:column; display:none;
+      }
+      ul.nav-links.show { display:flex; }
+      ul.nav-links li { margin:10px 0; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="container">
+    <div class="logo">LEON TECH</div>
+    <div class="menu-toggle" onclick="toggleNav()">☰</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="home" class="hero">
+    <h1>Welcome to LEON TECH</h1>
+    <p>Innovating the future of technology.</p>
+    <a href="#about" class="btn">Learn More</a>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p class="container">
+      LEON TECH is a student-driven platform demystifying web development.
+    </p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="grid container">
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>Responsive sites built with HTML, CSS & JavaScript.</p>
+      </div>
+      <div class="card">
+        <h3>UI/UX Design</h3>
+        <p>Sleek, user-friendly interfaces.</p>
+      </div>
+      <div class="card">
+        <h3>Tech Tutorials</h3>
+        <p>Step-by-step guides for beginners.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="container">
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 LEON TECH. All rights reserved.</p>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  function toggleNav() {
+    document.querySelector('.nav-links').classList.toggle('show');
+  }
+  // Scroll reveal
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal');
+      }
+    });
+  }, { threshold: 0.2 });
+  sections.forEach(sec => observer.observe(sec));
+</script>
+
+</body>
+</html>
